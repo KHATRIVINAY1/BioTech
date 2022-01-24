@@ -1,0 +1,267 @@
+{%extends 'index.html'%} {%block content%}
+{%load static%}
+<main id="main">
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <button
+          class="btn btn-primary category-button mb-3"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasScrolling"
+          aria-controls="offcanvasScrolling"
+        >
+          Show Categories
+        </button>
+        <h1>Product Name</h1>
+        <ol>
+          <li><a href="">Home</a></li>
+          <li>Product</li>
+          <li>Product Category</li>
+        </ol>
+      </div>
+    </div>
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="offcanvasScrolling"
+      aria-labelledby="offcanvasScrollingLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+          All Categories
+        </h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <ul class="show-all-categories">
+              <li><a href="#" class="active"><i class="bi bi-bandaid"></i> Category 1</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 2</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 3</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 4</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 5</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 6</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs Section -->
+
+  <section class="inner-page">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 col-sm-12 d-flex flex-column">
+                  <figure>
+                      <img src="{%static 'img/product1.jpg'%}" class="img-fluid main-image-product">
+                  </figure>
+                  <figure class="d-flex product-sub-images">
+                    <a><img src="{%static 'img/product1.jpg'%}" class="img-fluid border"></a>
+                    <a><img src="{%static 'img/product2.jpg'%}" class="img-fluid border"></a>
+                    <a><img src="{%static 'img/product3.jpg'%}" class="img-fluid border"></a>
+                    <a><img src="{%static 'img/product4.jpg'%}" class="img-fluid border"></a>
+                    <a><img src="{%static 'img/product5.jpg'%}" class="img-fluid border"></a>
+                    <a><img src="{%static 'img/product7.jpg'%}" class="img-fluid border"></a>
+                  </figure>
+                </div>
+
+                <div class="col-lg-6 col-sm-12 d-flex flex-column">
+                    <h1>Product Name </h1>
+                    <p><del>$123</del> <span class="current-price">$123</span</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae commodi voluptatem officiis ipsam consequatur laboriosam illum vitae at inventore laborum quos aliquid facilis blanditiis placeat maxime, modi enim quibusdam! Quod. </p>
+                    <div class="d-flex mb-3">
+                        <a href =" https://wa.me/91948447?text=I'm%20interested%20in%20your%20car%20product%20to buy" target="_blank" class="btn btn-primary" style="background-color: #25D366; border:none"> <i class="bi bi-whatsapp"></i> Whatsapp to Buy</a> <a class="btn btn-primary ms-3"><i class="bi bi-telephone"></i> Call to Buy</a>
+                    </div>
+                    <ul class="nav nav-tabs" id="ex1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a
+                            class="nav-link active"
+                            id="ex1-tab-1"
+                            data-mdb-toggle="tab"
+                            href="#"
+                            role="tab"
+                            aria-controls="ex1-tabs-1"
+                            aria-selected="true"
+                            >Description</a
+                          >
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <a
+                            class="nav-link"
+                            id="ex1-tab-2"
+                            data-mdb-toggle="tab"
+                            href="#"
+                            role="tab"
+                            aria-controls="ex1-tabs-2"
+                            aria-selected="false"
+                            >Additinal Information</a
+                          >
+                        </li>
+                      </ul>
+                      <!-- Tabs navs -->
+                      
+                      <!-- Tabs content -->
+                      <div class="tab-content" id="ex1-content">
+                        <div
+                          class="tab-pane fade show active"
+                          id="ex1-tabs-1"
+                          role="tabpanel"
+                          aria-labelledby="ex1-tab-1"
+                        >
+                          Product Description
+                        </div>
+                        <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                          Product Additional Inforamtion
+                        </div>
+                      </div>
+                      <!-- Tabs content -->
+                </div>
+          </div>
+      </div>
+  </section>
+  <section id="faq" class="faq section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+          in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="faq-list">
+        <ul>
+          <li data-aos="fade-up">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+              data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i
+                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+              <p>
+                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
+                gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
+              class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i
+                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
+                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit
+                ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3"
+              class="collapsed">Dolor sit amet consectetur adipiscing elit? <i
+                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
+                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
+                Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi
+                quis
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+              class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i
+                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc
+                vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus
+                gravida quis blandit turpis cursus in.
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="400">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5"
+              class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem
+              dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
+                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
+                tellus in metus vulputate eu scelerisque.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
+<!-- End #main -->
+
+<script>
+    function toggleActiveDec(event)
+    {
+        
+        if (!event.target.classList.contains('active')){
+            
+            event.target.classList.toggle('active');
+            additionalButton.classList.toggle('active');
+            addEle.classList.toggle('active');
+            addEle.classList.toggle('show');
+            desEle.classList.toggle('active');
+            desEle.classList.toggle('show');
+            
+        }
+    }
+
+    function toggleDecAct(event)
+    {
+        if (!event.target.classList.contains('active')){
+            event.target.classList.toggle('active');
+            desButton.classList.toggle('active');
+            desEle.classList.toggle('active');
+            desEle.classList.toggle('show');
+            addEle.classList.toggle('active');
+            addEle.classList.toggle('show');
+            
+        }
+    }
+
+    let desButton = document.querySelector('#ex1-tab-1');
+    let additionalButton = document.querySelector('#ex1-tab-2');
+
+    let desEle = document.querySelector('#ex1-tabs-1');
+    let addEle = document.querySelector('#ex1-tabs-2');
+
+    desButton.addEventListener('click', toggleActiveDec)
+    additionalButton.addEventListener('click', toggleDecAct)
+
+    let imgButtonArr = document.querySelectorAll('.product-sub-images img')
+    let mainImage = document.querySelector('.main-image-product');
+    function changeImage(event)
+    {
+        mainImage.src= event.target.src;
+    }
+
+    for (let i = 0; i < imgButtonArr.length; i++) {
+        imgButtonArr[i].addEventListener('mouseover', changeImage);    
+    }
+
+</script>
+{%endblock%}
+

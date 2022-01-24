@@ -847,7 +847,7 @@ section {
   border: 1px solid #d5e1ed;
   transition: all ease-in-out 0.3s;
   position: relative;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .services .icon-box::after {
@@ -871,7 +871,6 @@ section {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
 
 /*--------------------------------------------------------------
 # Appointments
@@ -1576,5 +1575,121 @@ section {
   .product-lists-container {
     max-height: 100vh;
     overflow-x: scroll;
+  }
+}
+
+/* product  style*/
+.breadcrumbs .category-button {
+  margin-left: 25px;
+  background: rgb(255, 166, 0);
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: bolder;
+  border:0px;
+}
+
+.breadcrumbs .category-button:hover{
+  background: rgba(255, 166, 0, 0.719);
+}
+
+/* category popover */
+.offcanvas-title{
+  font-size:1.6rem;
+  font-weight: bolder;
+}
+
+.show-all-categories{
+  list-style-type: none;
+}
+
+.show-all-categories li{
+  padding-top:1.2rem;
+  font-weight: bold;
+  color: black;
+}
+
+
+.show-all-categories li a{
+  color: black;
+}
+.show-all-categories li .active{
+  color: #1977cc;;
+}
+
+
+/* product cards */
+.card-product-heading
+{
+  font-weight: bolder;
+  margin: auto 0px;
+}
+.card-product-price
+{
+  font-weight: bold;
+  margin: auto 0px;
+  color: #1977cc;
+}
+
+.card-product-description
+{
+  font-size: 0.8rem;
+}
+
+/* Page Detail */
+.current-price{
+  font-size:1.5rem;
+  color: #FF1A21;
+  font-weight: bolder;
+}
+
+.product-sub-images img:hover
+{
+  cursor: pointer;
+  transform: scale(1.5);
+  transition:  all ease-out 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media quries */
+@media (max-width: 600px) {
+  .services .icon-box::after {
+    content: "Sale";
+    position: absolute;
+    top: 3%;
+    right: -18%;
+    background-color: orange;
+    color: white;
+    padding: 12px 5rem;
+    transform: rotate(45deg);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bolder;
   }
 }

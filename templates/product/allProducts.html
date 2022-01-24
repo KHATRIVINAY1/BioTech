@@ -1,0 +1,323 @@
+{%extends 'index.html'%} {%block content%}
+{%load static%}
+<main id="main">
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <button
+          class="btn btn-primary category-button mb-3"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasScrolling"
+          aria-controls="offcanvasScrolling"
+        >
+          Show Categories
+        </button>
+        <ol>
+          <li><a href="">Home</a></li>
+          <li>Products</li>
+        </ol>
+      </div>
+    </div>
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="offcanvasScrolling"
+      aria-labelledby="offcanvasScrollingLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+          All Categories
+        </h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <ul class="show-all-categories">
+              <li><a href="#" class="active"><i class="bi bi-bandaid"></i> Category 1</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 2</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 3</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 4</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 5</a></li>
+              <li><a href="#"><i class="bi bi-bandaid"></i> Category 6</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs Section -->
+
+  <section class="inner-page">
+      <div class="container">
+          <div class="row">
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product7.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product1.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product2.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product3.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product4.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product5.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product6.png'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product7.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product1.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product2.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product3.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product4.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product5.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product6.png'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product7.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+
+              <!-- product item start -->
+              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
+                <div class="card" >
+                    <img class="card-img-top img-fluid" src="{%static 'img/product1.jpg'%}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-product-heading">Product Title</h5>
+                            <p class="card-product-price">$874</p>
+                        </div>
+                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                    </div>
+                  </div>
+              </div>
+              <!-- item end -->
+          </div>
+      </div>
+  </section>
+</main>
+<!-- End #main -->
+
+{%endblock%}
