@@ -1536,8 +1536,8 @@ section {
   font-weight: normal;
 }
 .product-price {
-  color: #1977cc;
-  font: size 1.2rem;
+  color: #FF1A21;
+  font-size: 1.1rem;
   line-height: 1.2;
   font-weight: bold;
 }
@@ -1632,7 +1632,7 @@ section {
 {
   font-weight: bold;
   margin: auto 0px;
-  color: #1977cc;
+  color:  #FF1A21;
 }
 
 .card-product-description
@@ -1645,6 +1645,12 @@ section {
   font-size:1.5rem;
   color: #FF1A21;
   font-weight: bolder;
+}
+
+.product-sub-images img
+{
+  width: 5rem;
+  height: 5rem;
 }
 
 .product-sub-images img:hover

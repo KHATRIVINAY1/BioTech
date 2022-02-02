@@ -14,11 +14,11 @@
         >
           Show Categories
         </button>
-        <h1>Product Name</h1>
+      
         <ol>
-          <li><a href="">Home</a></li>
-          <li>Product</li>
-          <li>Product Category</li>
+          <li><a href="{%url 'index'%}">Home</a></li>
+          <li><a href="{%url 'allProducts'%}">Product</a></li>
+          <li>{{product.name}}</li>
         </ol>
       </div>
     </div>
@@ -62,24 +62,27 @@
           <div class="row">
               <div class="col-lg-6 col-sm-12 d-flex flex-column">
                   <figure>
-                      <img src="{%static 'img/product1.jpg'%}" class="img-fluid main-image-product">
+                    {% if product.picture_set %}
+                      {%for picture in product.picture_set.all|slice:":1"%}
+                      <img src="{{picture.picture.url}}" class="img-fluid main-image-product" style="max-width: 23rem;">
+                      {%endfor%}
+                    {%endif%}
                   </figure>
                   <figure class="d-flex product-sub-images">
-                    <a><img src="{%static 'img/product1.jpg'%}" class="img-fluid border"></a>
-                    <a><img src="{%static 'img/product2.jpg'%}" class="img-fluid border"></a>
-                    <a><img src="{%static 'img/product3.jpg'%}" class="img-fluid border"></a>
-                    <a><img src="{%static 'img/product4.jpg'%}" class="img-fluid border"></a>
-                    <a><img src="{%static 'img/product5.jpg'%}" class="img-fluid border"></a>
-                    <a><img src="{%static 'img/product7.jpg'%}" class="img-fluid border"></a>
+                    {% if product.picture_set %}
+                    {%for picture in product.picture_set.all%}
+                    <a><img src="{{picture.picture.url}}" class="img-fluid border"></a>
+                    {%endfor%}
+                    {%endif%}
                   </figure>
                 </div>
 
                 <div class="col-lg-6 col-sm-12 d-flex flex-column">
-                    <h1>Product Name </h1>
-                    <p><del>$123</del> <span class="current-price">$123</span</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae commodi voluptatem officiis ipsam consequatur laboriosam illum vitae at inventore laborum quos aliquid facilis blanditiis placeat maxime, modi enim quibusdam! Quod. </p>
+                    <h1>{{product.name}} </h1>
+                    <p><del>{{product.original_price}}</del> <span class="current-price">{{product.discounted_price}}</span</p>
+                    <p>{{product.short_description}}</p>
                     <div class="d-flex mb-3">
-                        <a href =" https://wa.me/91948447?text=I'm%20interested%20in%20your%20car%20product%20to buy" target="_blank" class="btn btn-primary" style="background-color: #25D366; border:none"> <i class="bi bi-whatsapp"></i> Whatsapp to Buy</a> <a class="btn btn-primary ms-3"><i class="bi bi-telephone"></i> Call to Buy</a>
+                        <a href =" https://wa.me/91948447?text=I'm%20interested%20in%20your%20car%20product%20to buy" target="_blank" class="btn btn-primary" style="background-color: #25D366; border:none"> <i class="bi bi-whatsapp"></i> Whatsapp to Buy</a> <a href="tel:+919374636373" class="btn btn-primary ms-3"><i class="bi bi-telephone"></i> Call to Buy</a>
                     </div>
                     <ul class="nav nav-tabs" id="ex1" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -103,24 +106,24 @@
                             role="tab"
                             aria-controls="ex1-tabs-2"
                             aria-selected="false"
-                            >Additinal Information</a
+                            >Additional Inforamtion</a
                           >
                         </li>
                       </ul>
                       <!-- Tabs navs -->
                       
                       <!-- Tabs content -->
-                      <div class="tab-content" id="ex1-content">
+                      <div class="tab-content mt-3" id="ex1-content">
                         <div
                           class="tab-pane fade show active"
                           id="ex1-tabs-1"
                           role="tabpanel"
                           aria-labelledby="ex1-tab-1"
                         >
-                          Product Description
+                         {{product.description|safe}}
                         </div>
                         <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                          Product Additional Inforamtion
+                          {{product.additionalInformation|safe}}
                         </div>
                       </div>
                       <!-- Tabs content -->
@@ -128,88 +131,47 @@
           </div>
       </div>
   </section>
+  {%if product.faq_set%}
   <section id="faq" class="faq section-bg">
     <div class="container">
 
       <div class="section-title">
         <h2>Frequently Asked Questions</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
       </div>
 
       <div class="faq-list">
         <ul>
+          {%for faq in product.faq_set.all%}
+          {%if forloop.first%}
           <li data-aos="fade-up">
             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-              data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i
+              data-bs-target="#faq-list-{{forloop.counter}}">{{faq.question}} <i
                 class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+            <div id="faq-list-{{forloop.counter}}" class="collapse show" data-bs-parent=".faq-list">
               <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
-                gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+               {{faq.answer}}
               </p>
             </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="100">
-            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
-              class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i
+          </li>   
+          {%else%}
+          <li data-aos="fade-up" data-aos-delay="{{forloop.counter}}00">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-{{forloop.counter}}"
+              class="collapsed">{{faq.question}} <i
                 class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+            <div id="faq-list-{{forloop.counter}}" class="collapse" data-bs-parent=".faq-list">
               <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
-                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit
-                ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                {{faq.answer}}
               </p>
             </div>
           </li>
-
-          <li data-aos="fade-up" data-aos-delay="200">
-            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3"
-              class="collapsed">Dolor sit amet consectetur adipiscing elit? <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
-                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
-                Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi
-                quis
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="300">
-            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
-              class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc
-                vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus
-                gravida quis blandit turpis cursus in.
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="400">
-            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5"
-              class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem
-              dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
-                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
-                tellus in metus vulputate eu scelerisque.
-              </p>
-            </div>
-          </li>
-
+          {%endif%}
+          {%endfor%}  
         </ul>
       </div>
 
     </div>
   </section>
+  {%endif%}
 </main>
 <!-- End #main -->
 

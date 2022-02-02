@@ -1,5 +1,7 @@
 {%extends 'index.html'%} {%block content%}
 {%load static%}
+{%block homeactive%}  {%endblock%}
+{%block shopactive%} active{%endblock%}
 <main id="main">
   <!-- ======= Breadcrumbs Section ======= -->
   <section class="breadcrumbs">
@@ -15,8 +17,11 @@
           Show Categories
         </button>
         <ol>
-          <li><a href="">Home</a></li>
-          <li>Products</li>
+          <li><a href="{%url 'index'%}">Home</a></li>
+          <li> <a href="{%url 'allProducts'%}">Products</a></li>
+          {%if current_category%}
+          <li>{{current_category}}</li>
+          {%endif%}
         </ol>
       </div>
     </div>
@@ -42,12 +47,9 @@
       <div class="offcanvas-body">
         <div>
           <ul class="show-all-categories">
-              <li><a href="#" class="active"><i class="bi bi-bandaid"></i> Category 1</a></li>
-              <li><a href="#"><i class="bi bi-bandaid"></i> Category 2</a></li>
-              <li><a href="#"><i class="bi bi-bandaid"></i> Category 3</a></li>
-              <li><a href="#"><i class="bi bi-bandaid"></i> Category 4</a></li>
-              <li><a href="#"><i class="bi bi-bandaid"></i> Category 5</a></li>
-              <li><a href="#"><i class="bi bi-bandaid"></i> Category 6</a></li>
+            {%for category in all_categories%}
+              <li><a href="{%url 'productCategory' category|slugify%}" ><i class="bi bi-bandaid"></i> {{category}}</a></li>
+              {%endfor%}
           </ul>
         </div>
       </div>
@@ -58,265 +60,56 @@
   <section class="inner-page">
       <div class="container">
           <div class="row">
+            {%if products%}
+            {%for product in products%}
               <!-- product item start -->
               <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
                 <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product7.jpg'%}" alt="Card image cap">
+                  {%if product.picture_set %}
+                        <img src="{{product.picture_set.first.picture.url }}" alt="" class="card-img-top img-fluid">
+                        {%else%}
+                        <img src="{% static 'img/departments-1.jpg'%}" alt="" class="card-img-top img-fluid">
+                        {%endif%}
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
+                            <h5 class="card-product-heading"><a href="{%url 'productDetail' product.slug%}">{{product.name}} </a></h5>
+                            <p class="card-product-price">₹{{product.discounted_price}}</p>
                         </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
+                        <p class="card-product-description">{{product.short_description|truncatewords:9}}</p>
+                        <a class="btn btn-outline-primary text-center" href="{%url 'productDetail' product.slug%}">View Product</a>
                     </div>
                   </div>
               </div>
               <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product1.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product2.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product3.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product4.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product5.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product6.png'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product7.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product1.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product2.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product3.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product4.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product5.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product6.png'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product7.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
-
-              <!-- product item start -->
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-                <div class="card" >
-                    <img class="card-img-top img-fluid" src="{%static 'img/product1.jpg'%}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-product-heading">Product Title</h5>
-                            <p class="card-product-price">$874</p>
-                        </div>
-                        <p class="card-product-description"> Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <a class="btn btn-outline-primary text-center" href="#">View Product</a>
-                    </div>
-                  </div>
-              </div>
-              <!-- item end -->
+              {%endfor%}
+              {%else%}
+              <h1>No Product Found {{query}}</h1>
+              {%endif%}
           </div>
       </div>
   </section>
+ 
+  {%if products.has_previous or products.has_next %}
+  <section>
+    <nav aria-label="..." class="d-flex">
+      <ul class="pagination mx-auto">
+        <li class="page-item ">
+          {% if products.has_previous %}
+          <a class="page-link" href="?page={{ products.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+          {%endif%}
+        </li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">{{ products.number }}</a>
+        </li>
+        {% if products.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
+        </li>
+        {%endif%}
+      </ul>
+    </nav>
+  </section>
+  {%endif%}
 </main>
 <!-- End #main -->
 
